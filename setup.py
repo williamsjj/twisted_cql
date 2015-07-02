@@ -7,6 +7,7 @@
 # 
 #               Requires: Twisted >= 15.0.0
 #                         cassandra-driver >= 2.5.1
+#                         blist >= 1.3.6
 #
 ####################################################################
 # (C)2015 DigiTar Inc., All Rights Reserved
@@ -15,7 +16,7 @@
 
 from setuptools import setup, find_packages
  
-version = '0.5.3'
+version = '0.5.4'
  
 setup(name='twisted_cql',
       version=version,
@@ -30,5 +31,6 @@ setup(name='twisted_cql',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests', 'old*']),
       zip_safe=False,
       install_requires=["Twisted>=15.0",
-                        "cassandra-driver>=2.5.1"]
+                        "cassandra-driver>=2.5.1",
+                        "blist>=1.3.6"]
     )
