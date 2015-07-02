@@ -17,8 +17,6 @@ from cassandra import ConsistencyLevel
 from twisted.internet import threads
 from twisted.internet import defer
 
-import errors
-
 class CassandraSession(object):
     """
     Thin wrapper around Datastax's cassandra-driver for Python.
