@@ -3,10 +3,10 @@
 # FILENAME: setup.py
 # PROJECT: twisted_cql
 # DESCRIPTION: Install Twisted CQL client 
-#              (thin wrapper around Datastax cassandra-python client.)
+#              (thin wrapper around Datastax cassandra-driver client.)
 # 
 #               Requires: Twisted >= 15.0.0
-#                         cassandra-python >= 2.6.0
+#                         cassandra-driver >= 2.6.0
 #
 ####################################################################
 # (C)2015 DigiTar Inc., All Rights Reserved
@@ -30,5 +30,5 @@ setup(name='twisted_cql',
       packages=find_packages(exclude=['ez_setup', 'examples', 'tests', 'old*']),
       zip_safe=False,
       install_requires=["Twisted>=15.0",
-                        "cassandra-python>=2.6.0"]
+                        "cassandra-driver>=2.6.0"]
     )
