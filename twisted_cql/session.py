@@ -17,6 +17,8 @@ from cassandra import ConsistencyLevel
 from twisted.internet import threads
 from twisted.internet import defer
 
+import errors
+
 class CassandraSession(object):
     """
     Thin wrapper around Datastax's cassandra-driver for Python.
@@ -80,10 +82,10 @@ class CassandraSession(object):
         except cassandra.cluster.NoHostAvailable, e:
             for host_key in e.args[1].keys():
                 if isinstance(e.args[1][host_key], cassandra.AuthenticationFailed):
-                    print "%s: Whoa. Bad username or password." % host_key
+                    raise e.args[1][host_key]
                 else:
                     print "%s: Unexpected Error - %s" % (host_key, repr(e.args[1][host_key]))
-                raise e
+                    raise e
         
         defer.returnValue(True)
     
