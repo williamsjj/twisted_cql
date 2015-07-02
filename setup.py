@@ -15,14 +15,14 @@
 
 from setuptools import setup, find_packages
  
-version = '0.5.1'
+version = '0.5.3'
  
 setup(name='twisted_cql',
       version=version,
-      description="Twisted",
-      long_description="""Shiji makes it easy to build HTTP & RESTful APIs using Twisted Web.""",
+      description="Twisted CQL client.",
+      long_description="""Thin wrapper around Datastax cassandra-driver client.""",
       classifiers=[],
-      keywords='twisted,cql,cassandra,datastax',
+      keywords='twisted cql cassandra datastax',
       author='DigiTar',
       author_email='support@digitar.com',
       url='https://github.com/williamsjj/twisted_cql',
