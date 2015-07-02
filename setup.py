@@ -5,7 +5,7 @@
 # DESCRIPTION: Install Twisted CQL client 
 #              (thin wrapper around Datastax cassandra-python client.)
 # 
-#               Requires: TwistedWeb >= 15.0.0
+#               Requires: Twisted >= 15.0.0
 #                         cassandra-python >= 2.6.0
 #
 ####################################################################
