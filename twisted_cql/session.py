@@ -100,7 +100,9 @@ class CassandraSession(object):
         if not self._session:
             yield self.connect()
         
-        rows = yield self._session.execute(*args, **kwargs)
+        rows = yield threads.deferToThread(self._session.execute, *args, **kwargs)
+        
+        defer.returnValue(rows)
     
     def execute_query(self, query, query_args=None, consistency_level=ConsistencyLevel.ONE):
         """
