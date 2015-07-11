@@ -54,7 +54,7 @@ class CassandraSession(object):
         """
         Set authentication parameters.
         """
-        if username and password:
+        if username != None and password != None:
             self._auth_provider = authenticator(username=username,password=password)
         else:
             self._auth_provider = None
