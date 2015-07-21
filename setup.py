@@ -16,7 +16,7 @@
 
 from setuptools import setup, find_packages
  
-version = '0.5.7'
+version = '0.5.8'
  
 setup(name='twisted_cql',
       version=version,

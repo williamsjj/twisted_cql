@@ -22,7 +22,7 @@ class CassandraSession(object):
     Thin wrapper around Datastax's cassandra-driver for Python.
     """
     
-    def __init__(self, hosts, port=9042, keyspace=None, username=None, password=None, authenticator=cassandra.auth.PlainTextAuthProvider):
+    def __init__(self, hosts, port=9042, keyspace=None, username=None, password=None, authenticator=cassandra.auth.PlainTextAuthProvider, protocol_version=3):
         """
         Initialize a new cassandra Session object to run queries against.
         
@@ -36,7 +36,7 @@ class CassandraSession(object):
                 - Authentication provider to use when authenticating.
             username (unicode) (default: None)- Username to use when connecting to cluster.
             password (unicode) (default: None) - Password to use when connecting to cluster.
-        
+            protocol_version (int) (default: 3) - Cassandra protocol version to use.
         Returns:
             Success: returns CassandraSession instance.
             Failure: Raises exception.
@@ -47,7 +47,7 @@ class CassandraSession(object):
         self._keyspace = keyspace
         
         self._set_auth(username=username,password=password,authenticator=authenticator)
-        self._cluster = cassandra.cluster.Cluster(self.hosts,self.port,auth_provider=self._auth_provider)
+        self._cluster = cassandra.cluster.Cluster(self.hosts,self.port,auth_provider=self._auth_provider,protocol_version=protocol_version)
         self._session = None
         
     def _set_auth(self, username=None, password=None, authenticator=cassandra.auth.PlainTextAuthProvider):
